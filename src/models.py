@@ -33,6 +33,8 @@ class Usuario(Base):
     id = Column(Integer, primary_key=True)
     email = Column(String(250), nullable=False)
     name = Column(String(250), nullable=False)
+    favorito_id = Column(Integer, ForeignKey('favorito.id'),
+         nullable=False)
     favoritousuario = relationship('Favorito', backref='usuario', lazy=True)
 
 class Planeta(Base):
